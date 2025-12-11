@@ -76,10 +76,10 @@ async function generateCsv() {
         sku: v.sku,
         color: v.color,
         frameSize: v.frameSizeFormated,
-        frameSizeNumeric: v.frameSize,
+        frameSizeNumeric: v.frameSize ?? '0',
         Lager: '1', // always "1"
-        price: v.price,
-        retailPrice: v.discountPrice ?? v.price, // use price when discountPrice is null
+        price: v.discountPrice ?? v.price, // use price when discountPrice is null
+        retailPrice: v.price, 
     }));
 
     const headers = [
