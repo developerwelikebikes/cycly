@@ -101,7 +101,7 @@ async function generateCsv() {
     lines.push(headers.join(','));
 
     for (const row of rows) {
-        const line = headers.map((h) => csvEscape(row[h])).join(',');
+        const line = headers.map((h) => csvEscape(row[h])).join(';');
         lines.push(line);
     }
 
