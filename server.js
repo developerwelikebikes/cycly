@@ -76,7 +76,7 @@ async function generateCsv() {
         sku: v.sku,
         color: v.color,
         frameSize: v.frameSizeFormated,
-        frameSizeNumeric: v.frameSize ?? '0',
+        frameSizeNumeric: v.frameSize ?? '',
         Lager: '1', // always "1"
         price: v.discountPrice ?? v.price, // use price when discountPrice is null
         retailPrice: v.price, 
@@ -98,7 +98,7 @@ async function generateCsv() {
     ];
 
     const lines = [];
-    lines.push(headers.join(','));
+    lines.push(headers.join(';'));
 
     for (const row of rows) {
         const line = headers.map((h) => csvEscape(row[h])).join(';');
